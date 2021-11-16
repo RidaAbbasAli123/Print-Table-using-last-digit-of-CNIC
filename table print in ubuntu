@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<sys/wait.h>
+#include<unistd.h>
+int main (void){
+    int p,x ;
+    p=fork();
+    if(p==0){
+        int t=2;
+        int i=1;
+        while(i<=10){
+            printf("%d x %d = %d\n",t,i,t*i);
+            i++;
+        }
+    }
+    else{
+        wait(&x);
+        printf("In the parent process: \nName : Rida\nCNIC : 3650249562842");
+    }
+    return 0;
+}
